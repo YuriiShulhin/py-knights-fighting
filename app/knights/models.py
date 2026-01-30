@@ -5,7 +5,6 @@ class Knight:
         self.hp = config["hp"]
         self.protection = 0
 
-        # Викликаємо методи для підрахунку статів одразу при створенні
         self._apply_armour(config["armour"])
         self._apply_weapon(config["weapon"])
         self._apply_potion(config["potion"])
@@ -25,7 +24,6 @@ class Knight:
             self.protection += effect.get("protection", 0)
 
     def take_damage(self, damage: int) -> None:
-        """Зменшує HP лицаря, враховуючи, що HP не може бути < 0."""
         self.hp -= damage
         if self.hp < 0:
             self.hp = 0
